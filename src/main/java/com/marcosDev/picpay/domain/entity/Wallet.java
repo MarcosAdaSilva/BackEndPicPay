@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@Table(name ="tb_wallet")
+@Table(name = "tb_wallet")
 public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,10 @@ public class Wallet {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(unique = true)
+    @Column(name ="cpfCnpj", unique = true)
     private String cpfCnpj;
 
-    @Column(unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
@@ -41,6 +41,6 @@ public class Wallet {
         this.cpfCnpj = cpfCnpj;
         this.email = email;
         this.password = password;
-        wallet = walletType;
+        this.walletType = walletType;
     }
 }
