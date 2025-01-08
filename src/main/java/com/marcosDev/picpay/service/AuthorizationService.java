@@ -1,7 +1,7 @@
 package com.marcosDev.picpay.service;
 
 import com.marcosDev.picpay.domain.client.AuthorizationClient;
-import com.marcosDev.picpay.domain.entity.Transfer;
+import com.marcosDev.picpay.domain.dto.TransferDto;
 import com.marcosDev.picpay.infra.PicPayException;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class AuthorizationService {
         this.authorizationClient = authorizationClient;
     }
 
-    public boolean isAuthorized(Transfer transfer) {
+    public boolean isAuthorized(TransferDto transfer) {
         var resp = authorizationClient.isAuthorized();
 
         if (resp.getStatusCode().isError()) {
