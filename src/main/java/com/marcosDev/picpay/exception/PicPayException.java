@@ -1,4 +1,4 @@
-package com.marcosDev.picpay.infra;
+package com.marcosDev.picpay.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

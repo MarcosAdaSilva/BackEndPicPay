@@ -2,7 +2,7 @@ package com.marcosDev.picpay.service;
 
 import com.marcosDev.picpay.domain.client.AuthorizationClient;
 import com.marcosDev.picpay.domain.dto.TransferDto;
-import com.marcosDev.picpay.infra.PicPayException;
+import com.marcosDev.picpay.exception.PicPayException;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,6 +1,6 @@
 package com.marcosDev.picpay.rest;
 
-import com.marcosDev.picpay.infra.PicPayException;
+import com.marcosDev.picpay.exception.PicPayException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.MethodArgumentNotValidException;
