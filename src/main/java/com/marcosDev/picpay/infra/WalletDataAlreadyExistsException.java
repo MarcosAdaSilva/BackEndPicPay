@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
 public class WalletDataAlreadyExistsException extends PicPayException {
+
     private String detail;
     public WalletDataAlreadyExistsException(String detail) {
         this.detail = detail;

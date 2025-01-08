@@ -26,22 +26,6 @@ public class WalletType {
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public enum Enum {
 
         USER(1L, "user"),
@@ -52,8 +36,8 @@ public class WalletType {
             this.description = description;
         }
 
-        private Long id;
-        private String description;
+        private final Long id;
+        private final String description;
 
         public WalletType get() {
             return new WalletType(id, description);
