@@ -5,18 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
-
 @Entity
 @Table(name = "tb_transfer")
 public class Transfer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "wallet_sender_id")
@@ -29,13 +28,16 @@ public class Transfer {
     @Column(name = "value")
     private BigDecimal value;
 
-    public Transfer(){
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
+    public Transfer() {
     }
 
     public Transfer(Wallet sender, Wallet receiver, BigDecimal value) {
         this.sender = sender;
         this.receiver = receiver;
         this.value = value;
+        this.createdAt = LocalDateTime.now();
     }
 }
