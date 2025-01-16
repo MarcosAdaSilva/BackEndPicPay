@@ -1,23 +1,28 @@
-version: '3.8'
-
 services:
-  app:
-    image: picpayApplication:latest
+  notification-service:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-    volumes:
-      - .:/app
-    networks:
-      - app-network
+    depends_on:
+      - postgres
 
-networks:
-  app-network:
-    driver: bridge
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
