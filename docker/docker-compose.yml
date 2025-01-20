@@ -1,5 +1,5 @@
 services:
-  notification-service:
+  picpay:
     build:
       context: ..
       dockerfile: Dockerfile
